@@ -39,50 +39,103 @@
     font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 680px; margin: 0 auto; padding: 64px 20px 48px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 64px 20px 48px; }
   a { color: var(--link); }
+  img { display: block; max-width: 100%; height: auto; }
   .hero { text-align: center; }
-  .hero img { width: 120px; height: 120px; border-radius: 27px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
-  h1 { font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; margin: 24px 0 8px; }
-  .tagline { font-size: 21px; margin: 0 0 6px; }
-  .lede { color: var(--muted); margin: 0 auto 28px; max-width: 520px; }
+  .hero .icon { width: 96px; height: 96px; margin: 0 auto; border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
+  h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -0.025em; margin: 24px auto 14px; max-width: 760px; }
+  .lede { color: var(--muted); font-size: 19px; margin: 0 auto 28px; max-width: 560px; }
   .soon {
     display: inline-block; padding: 14px 30px; border-radius: 999px;
     background: var(--button); color: var(--button-ink); font-weight: 600;
   }
   .helper { margin: 14px 0 0; font-size: 15px; color: var(--muted); }
-  ul.features { list-style: none; margin: 48px 0 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; }
-  ul.features li { padding: 16px 20px; }
-  ul.features li + li { border-top: 1px solid var(--line); }
-  ul.features strong { display: block; }
-  ul.features span { color: var(--muted); font-size: 15px; }
-  .price { color: var(--muted); font-size: 15px; text-align: center; margin: 28px 0 0; }
-  footer { color: var(--muted); font-size: 14px; margin: 48px 0 0; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+  .photo { margin: 56px auto 0; border-radius: 24px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25); }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 110px; }
+  .row.flip .shot { order: 2; }
+  .shot img { margin: 0 auto; max-height: 640px; width: auto; }
+  h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 22px; }
+  .points { list-style: none; margin: 0; padding: 0; }
+  .points li { padding: 14px 0; border-top: 1px solid var(--line); }
+  .points strong { display: block; }
+  .points span { color: var(--muted); font-size: 16px; }
+
+  .private { margin: 110px auto 0; max-width: 680px; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 36px 28px; }
+  .private h2 { margin-bottom: 10px; }
+  .private p { color: var(--muted); margin: 0; }
+  .price { text-align: center; margin: 72px auto 0; max-width: 620px; }
+  .price p { color: var(--muted); margin: 0 0 24px; }
+  footer { color: var(--muted); font-size: 14px; margin: 72px auto 0; max-width: 680px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
   footer a { color: var(--muted); }
+
+  @media (max-width: 760px) {
+    main { padding-top: 44px; }
+    .photo { margin-top: 40px; border-radius: 16px; }
+    .row { grid-template-columns: 1fr; gap: 28px; margin-top: 72px; }
+    .row.flip .shot { order: 0; }
+    .shot img { max-height: 460px; }
+    .private, .price { margin-top: 72px; }
+  }
 </style>
 </head>
 <body>
 <main>
   <section class="hero">
-    <img src="icon.png" alt="Couchmate app icon">
-    <h1>Couchmate</h1>
-    <p class="tagline">The remote for movies on your Mac.</p>
+    <img class="icon" src="icon.png" alt="Couchmate app icon" width="96" height="96">
+    <h1>The remote for movies on your Mac.</h1>
     <p class="lede">Play, pause, skip and turn up the volume from the sofa, with a trackpad and a keyboard for everything else. On your iPhone or iPad.</p>
     <!-- At launch: replace this with the App Store link and Apple's badge. -->
     <span class="soon">Coming soon to the App Store</span>
     <p class="helper">Needs the free <a href="mac/">Couchmate Helper for Mac</a>.</p>
+    <img class="photo" src="img/sofa.webp" width="1376" height="768" alt="A woman on the sofa uses Couchmate on her iPhone to control a film playing on her MacBook">
   </section>
 
-  <ul class="features">
-    <li><strong>The buttons you reach for</strong><span>Play, pause, skip and volume, also from the Lock Screen and with Siri.</span></li>
-    <li><strong>Trackpad and keyboard</strong><span>Move the pointer, scroll, click and type on your Mac from your iPhone.</span></li>
-    <li><strong>Skip Intro, from the sofa</strong><span>When a streaming site offers to skip the intro, Couchmate shows it as one big button.</span></li>
-    <li><strong>Sleep timer</strong><span>Pauses playback when you nod off, and can put the Mac to sleep.</span></li>
-    <li><strong>Your iPad, too</strong><span>Your iPhone becomes a Bluetooth remote for your iPad.</span></li>
-    <li><strong>Private</strong><span>No account, no tracking. The remote talks only to your own devices, encrypted.</span></li>
-  </ul>
+  <section class="row">
+    <div class="shot"><img src="img/devices.webp" width="1400" height="1516" loading="lazy" alt="Couchmate on an iPad and an iPhone"></div>
+    <div>
+      <h2>Everything from the sofa.</h2>
+      <ul class="points">
+        <li><strong>The buttons you reach for</strong><span>Play, pause, skip and volume, also from the Lock Screen and with Siri.</span></li>
+        <li><strong>A trackpad in your hand</strong><span>Move the pointer, click and scroll. One hand is enough: slide along the edge to scroll.</span></li>
+        <li><strong>A keyboard when you need one</strong><span>It opens by itself when you tap a search field on the Mac.</span></li>
+      </ul>
+    </div>
+  </section>
 
-  <p class="price">Free to download, with every feature free for 14 days. After that, play/pause and volume stay free, and a one-time unlock adds the rest.</p>
+  <section class="row flip">
+    <div class="shot"><img src="img/iphone.webp" width="760" height="1469" loading="lazy" alt="The Couchmate remote on an iPhone"></div>
+    <div>
+      <h2>Made for movie night.</h2>
+      <ul class="points">
+        <li><strong>Skip Intro, from the sofa</strong><span>When a streaming site offers to skip the intro, Couchmate shows it as one big button.</span></li>
+        <li><strong>Quick launch</strong><span>Open your streaming services on the Mac with one tap.</span></li>
+        <li><strong>Sleep timer</strong><span>Pauses playback when you nod off, and can put the Mac to sleep.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="shot"><img src="img/ipad.webp" width="980" height="1406" loading="lazy" alt="The Couchmate remote on an iPad"></div>
+    <div>
+      <h2>Your iPad, too.</h2>
+      <ul class="points">
+        <li><strong>The iPad as a remote</strong><span>The same remote, on the bigger screen.</span></li>
+        <li><strong>Or a remote for the iPad</strong><span>Your iPhone becomes a Bluetooth remote for your iPad: play, pause, volume and a pointer.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="private">
+    <h2>Private by design.</h2>
+    <p>No account, no ads, no tracking. Couchmate talks only to your own devices on your Wi-Fi, encrypted, and never sees your screen.</p>
+  </section>
+
+  <section class="price">
+    <p>Free to download, with every feature free for 14 days. After that, play/pause and volume stay free, and a one-time unlock adds the rest. No subscription.</p>
+    <span class="soon">Coming soon to the App Store</span>
+  </section>
 
   <footer>
     <a href="mac/">Mac helper</a>
