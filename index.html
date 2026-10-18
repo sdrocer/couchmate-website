@@ -39,19 +39,19 @@
     font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 1100px; margin: 0 auto; padding: 64px 20px 48px; }
+  main { max-width: 1180px; margin: 0 auto; padding: 48px 24px 48px; }
   a { color: var(--link); }
   img { display: block; max-width: 100%; height: auto; }
-  .hero { text-align: center; }
-  .hero .icon { width: 96px; height: 96px; margin: 0 auto; border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
-  h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -0.025em; margin: 24px auto 14px; max-width: 760px; }
-  .lede { color: var(--muted); font-size: 19px; margin: 0 auto 28px; max-width: 560px; }
+  .hero { display: grid; grid-template-columns: 4fr 7fr; gap: 56px; align-items: center; min-height: calc(100vh - 120px); max-height: 820px; }
+  .hero .icon { width: 84px; height: 84px; border-radius: 19px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
+  h1 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -0.025em; margin: 22px 0 14px; }
+  .lede { color: var(--muted); font-size: 19px; margin: 0 0 28px; }
   .soon {
     display: inline-block; padding: 14px 30px; border-radius: 999px;
     background: var(--button); color: var(--button-ink); font-weight: 600;
   }
   .helper { margin: 14px 0 0; font-size: 15px; color: var(--muted); }
-  .photo { margin: 56px auto 0; border-radius: 24px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25); }
+  .photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 62% 50%; border-radius: 24px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25); }
 
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 110px; }
   .row.flip .shot { order: 2; }
@@ -71,8 +71,11 @@
   footer a { color: var(--muted); }
 
   @media (max-width: 760px) {
-    main { padding-top: 44px; }
-    .photo { margin-top: 40px; border-radius: 16px; }
+    main { padding-top: 32px; }
+    .hero { grid-template-columns: 1fr; gap: 32px; min-height: 0; text-align: center; }
+    .hero .icon { margin: 0 auto; width: 72px; height: 72px; border-radius: 16px; }
+    h1 { margin-top: 16px; }
+    .photo { aspect-ratio: 16 / 10; border-radius: 16px; }
     .row { grid-template-columns: 1fr; gap: 28px; margin-top: 72px; }
     .row.flip .shot { order: 0; }
     .shot img { max-height: 460px; }
@@ -83,12 +86,14 @@
 <body>
 <main>
   <section class="hero">
+    <div>
     <img class="icon" src="icon.png" alt="Couchmate app icon" width="96" height="96">
-    <h1>The remote for movies on your Mac.</h1>
-    <p class="lede">Play, pause, skip and turn up the volume from the sofa, with a trackpad and a keyboard for everything else. On your iPhone or iPad.</p>
+    <h1>The remote for movies on your&nbsp;Mac.</h1>
+    <p class="lede">Play, pause, skip and turn up the volume from the sofa, with a trackpad and a keyboard for everything else. On your iPhone or&nbsp;iPad.</p>
     <!-- At launch: replace this with the App Store link and Apple's badge. -->
     <span class="soon">Coming soon to the App Store</span>
     <p class="helper">Needs the free <a href="mac/">Couchmate Helper for Mac</a>.</p>
+    </div>
     <img class="photo" src="img/sofa.webp" width="1376" height="768" alt="A woman on the sofa uses Couchmate on her iPhone to control a film playing on her MacBook">
   </section>
 
