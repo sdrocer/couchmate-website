@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Couchmate: the remote for movies on your Mac</title>
+<meta name="description" content="Control movies and videos on your Mac from the sofa: play, pause, skip, volume, a trackpad and a keyboard on your iPhone or iPad.">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<style>
+  /* No external fonts or scripts: the page loads nothing from other servers. */
+  :root {
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --ink: #1d1d1f;
+    --muted: #6e6e73;
+    --line: #d2d2d7;
+    --link: #0066cc;
+    --button: #1d1d1f;
+    --button-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000000;
+      --card: #161617;
+      --ink: #f5f5f7;
+      --muted: #a1a1a6;
+      --line: #333336;
+      --link: #2997ff;
+      --button: #f5f5f7;
+      --button-ink: #000000;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 64px 20px 48px; }
+  a { color: var(--link); }
+  .hero { text-align: center; }
+  .hero img { width: 120px; height: 120px; border-radius: 27px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
+  h1 { font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; margin: 24px 0 8px; }
+  .tagline { font-size: 21px; margin: 0 0 6px; }
+  .lede { color: var(--muted); margin: 0 auto 28px; max-width: 520px; }
+  .soon {
+    display: inline-block; padding: 14px 30px; border-radius: 999px;
+    background: var(--button); color: var(--button-ink); font-weight: 600;
+  }
+  .helper { margin: 14px 0 0; font-size: 15px; color: var(--muted); }
+  ul.features { list-style: none; margin: 48px 0 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; }
+  ul.features li { padding: 16px 20px; }
+  ul.features li + li { border-top: 1px solid var(--line); }
+  ul.features strong { display: block; }
+  ul.features span { color: var(--muted); font-size: 15px; }
+  .price { color: var(--muted); font-size: 15px; text-align: center; margin: 28px 0 0; }
+  footer { color: var(--muted); font-size: 14px; margin: 48px 0 0; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <img src="icon.png" alt="Couchmate app icon">
+    <h1>Couchmate</h1>
+    <p class="tagline">The remote for movies on your Mac.</p>
+    <p class="lede">Play, pause, skip and turn up the volume from the sofa, with a trackpad and a keyboard for everything else. On your iPhone or iPad.</p>
+    <!-- At launch: replace this with the App Store link and Apple's badge. -->
+    <span class="soon">Coming soon to the App Store</span>
+    <p class="helper">Needs the free <a href="mac/">Couchmate Helper for Mac</a>.</p>
+  </section>
+
+  <ul class="features">
+    <li><strong>The buttons you reach for</strong><span>Play, pause, skip and volume, also from the Lock Screen and with Siri.</span></li>
+    <li><strong>Trackpad and keyboard</strong><span>Move the pointer, scroll, click and type on your Mac from your iPhone.</span></li>
+    <li><strong>Skip Intro, from the sofa</strong><span>When a streaming site offers to skip the intro, Couchmate shows it as one big button.</span></li>
+    <li><strong>Sleep timer</strong><span>Pauses playback when you nod off, and can put the Mac to sleep.</span></li>
+    <li><strong>Your iPad, too</strong><span>Your iPhone becomes a Bluetooth remote for your iPad.</span></li>
+    <li><strong>Private</strong><span>No account, no tracking. The remote talks only to your own devices, encrypted.</span></li>
+  </ul>
+
+  <p class="price">Free to download, with every feature free for 14 days. After that, play/pause and volume stay free, and a one-time unlock adds the rest.</p>
+
+  <footer>
+    <a href="mac/">Mac helper</a>
+    <a href="support/">Support</a>
+    <a href="privacy/">Privacy</a>
+  </footer>
+</main>
+</body>
+</html>

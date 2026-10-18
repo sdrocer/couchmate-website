@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Couchmate Support</title>
+<meta name="description" content="Setup, answers to common questions and contact for Couchmate, the remote for movies and videos on your Mac.">
+<style>
+  /* No external fonts or scripts: the page loads nothing from other servers. */
+  :root {
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --ink: #1d1d1f;
+    --muted: #6e6e73;
+    --line: #d2d2d7;
+    --link: #0066cc;
+    --button: #1d1d1f;
+    --button-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000000;
+      --card: #161617;
+      --ink: #f5f5f7;
+      --muted: #a1a1a6;
+      --line: #333336;
+      --link: #2997ff;
+      --button: #f5f5f7;
+      --button-ink: #000000;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 48px 20px 56px; }
+  a { color: var(--link); }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; font-weight: 600; }
+  .brand img { width: 40px; height: 40px; border-radius: 9px; }
+  h1 { font-size: 34px; line-height: 1.15; letter-spacing: -0.02em; margin: 32px 0 8px; }
+  .lede { color: var(--muted); margin: 0 0 28px; }
+  h2 { font-size: 22px; letter-spacing: -0.01em; margin: 40px 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; }
+  ol.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+  ol.steps li { counter-increment: step; display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 16px 20px; }
+  ol.steps li + li { border-top: 1px solid var(--line); }
+  ol.steps li::before {
+    content: counter(step); width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid var(--ink); display: grid; place-items: center; font-size: 14px; font-weight: 600;
+  }
+  ol.steps li span { color: var(--muted); font-size: 15px; display: block; }
+  details { padding: 0 20px; }
+  details + details { border-top: 1px solid var(--line); }
+  summary { cursor: pointer; padding: 16px 0; font-weight: 600; list-style-position: outside; }
+  summary:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; border-radius: 6px; }
+  details p, details ul { margin: 0 0 16px; color: var(--ink); }
+  details ul { padding-left: 22px; }
+  details li { margin: 4px 0; }
+  .contact { padding: 20px 22px; }
+  .contact p { margin: 0 0 8px; }
+  .contact p:last-child { margin: 0; color: var(--muted); font-size: 15px; }
+  .mail {
+    display: inline-block; margin: 4px 0 12px; padding: 12px 26px; border-radius: 999px;
+    background: var(--button); color: var(--button-ink); font-weight: 600; text-decoration: none;
+  }
+  footer { color: var(--muted); font-size: 14px; margin: 48px 0 0; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <a class="brand" href="../"><img src="../icon.png" alt="">Couchmate</a>
+
+  <h1>Support</h1>
+  <p class="lede">Setup, answers to common questions, and how to reach us.</p>
+
+  <h2>Setup in two minutes</h2>
+  <div class="card">
+    <ol class="steps">
+      <li><div><strong>Get the free Mac helper</strong><span>Open <a href="../mac/">getcouchmate.app/mac</a> on your Mac, or send the link there from the setup in the app.</span></div></li>
+      <li><div><strong>Open it on the Mac</strong><span>It moves itself to Applications and shows how to turn on the one permission it needs (Accessibility).</span></div></li>
+      <li><div><strong>Same Wi-Fi</strong><span>Your iPhone or iPad and your Mac need to be on the same network. When Couchmate asks to find devices on your local network, tap Allow.</span></div></li>
+      <li><div><strong>Pair once</strong><span>Tap your Mac in Couchmate. If both screens show the same code, click Allow on the Mac. From then on, Couchmate connects by itself.</span></div></li>
+    </ol>
+  </div>
+
+  <h2>Questions</h2>
+  <div class="card">
+    <details>
+      <summary>What do I need?</summary>
+      <p>An iPhone or iPad with iOS or iPadOS 17 or later, and a Mac with macOS 14 Sonoma or later (Apple silicon or Intel) running the free Couchmate Helper. Both on the same Wi-Fi.</p>
+    </details>
+    <details>
+      <summary>My Mac doesn't show up in the app.</summary>
+      <ul>
+        <li>Check that Couchmate Helper is running: its icon is in the Mac's menu bar.</li>
+        <li>Check that both devices are on the same Wi-Fi. Guest networks and some office or hotel networks don't let devices see each other.</li>
+        <li>On your iPhone or iPad, open Settings › Privacy &amp; Security › Local Network and make sure Couchmate is on.</li>
+        <li>A VPN on either device can hide the Mac. Try without it.</li>
+        <li>If the Mac is asleep, wake it (open the lid or press a key). While a device is connected, the helper keeps the Mac from falling asleep by itself.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>It connects, but the buttons do nothing.</summary>
+      <p>Couchmate Helper needs Accessibility access to press keys for you. On the Mac, open System Settings › Privacy &amp; Security › Accessibility and turn on Couchmate Helper. After an update of the helper, macOS sometimes needs this again: turn it off and on.</p>
+    </details>
+    <details>
+      <summary>Which apps does it work with?</summary>
+      <p>Play/pause, skipping and volume work with video and music in Safari and Chrome (YouTube, Netflix, Disney+ and other streaming sites), the Apple TV app, Music, Spotify, QuickTime Player, IINA and VLC. The arrow keys, space and fullscreen go to whatever app is in front on the Mac.</p>
+    </details>
+    <details>
+      <summary>What does “Skip Intro” do?</summary>
+      <p>When a streaming site shows a button like “Skip Intro” or “Skip Recap” on your Mac, Couchmate shows it on your iPhone as one big button, so you don't have to reach for the trackpad.</p>
+    </details>
+    <details>
+      <summary>Is it safe? What can the helper see?</summary>
+      <p>Only devices you allowed on the Mac can connect, and every connection is encrypted. The helper never records or captures your screen. It reads the name of the app in front, its window title and the labels of buttons like “Skip Intro”, only to show them on your iPhone. None of this leaves your own network. Details are in the <a href="../privacy/">privacy policy</a>.</p>
+    </details>
+    <details>
+      <summary>How does unlocking my Mac work?</summary>
+      <p>Set it up once in Couchmate Helper's menu by entering your Mac password. It's saved only in your Mac's Keychain and never leaves the Mac. When the screen is locked, the unlock button on your iPhone asks for Face ID, then the helper types the password.</p>
+    </details>
+    <details>
+      <summary>Can I control an iPad?</summary>
+      <p>Yes. Your iPhone can act as a Bluetooth keyboard and trackpad for your iPad. Tap + on Couchmate's start screen and follow the steps. With Couchmate also installed on the iPad, the iPad stays connected to your iPhone.</p>
+    </details>
+    <details>
+      <summary>I want to pair a device again, or remove all devices.</summary>
+      <p>In Couchmate Helper's menu on the Mac, choose Remove Devices…. Every iPhone and iPad then has to pair again: tap the Mac in Couchmate and click Allow on the Mac.</p>
+    </details>
+    <details>
+      <summary>What's free, and what does the unlock include?</summary>
+      <p>Couchmate is free to download and every feature is free for 14 days. After that, play/pause and volume stay free for good. The rest (skipping, trackpad, keyboard, Quick launch, Skip Intro, sleep timer and more) needs a one-time unlock: no subscription, nothing renews. The price is shown in the app in your currency. Couchmate on the iPad, which keeps the iPad connected to your iPhone, never needs the unlock.</p>
+    </details>
+    <details>
+      <summary>I bought the unlock, but it's locked on a new device.</summary>
+      <p>Sign in with the same Apple Account, open Couchmate's help and choose Restore Purchases under “Full version”.</p>
+    </details>
+    <details>
+      <summary>How do I update or remove the Mac helper?</summary>
+      <p>When the app needs a newer helper, it tells you; download it again from <a href="../mac/">getcouchmate.app/mac</a>. To remove the helper, choose Quit in its menu and drag Couchmate Helper from Applications to the Trash.</p>
+    </details>
+  </div>
+
+  <h2>Contact</h2>
+  <div class="card contact">
+    <p>Something not working, or an idea? Write to us:</p>
+    <a class="mail" href="mailto:support@getcouchmate.app">support@getcouchmate.app</a>
+    <p>It helps to mention your iPhone or iPad model and iOS version, your Mac and its macOS version, and what you tried.</p>
+  </div>
+
+  <footer>
+    <a href="../">Couchmate</a>
+    <a href="../mac/">Mac helper</a>
+    <a href="../privacy/">Privacy</a>
+  </footer>
+</main>
+</body>
+</html>
