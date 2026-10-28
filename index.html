@@ -78,7 +78,8 @@
   footer a { color: var(--muted); }
 
   @media (max-width: 760px) {
-    .thread { display: none; }   /* one column: the line would run through the text */
+    .thread .core { stroke-width: 6; }   /* one column: the line runs along the edge, past the text */
+    .thread .glow { stroke-width: 26; }
     main { padding-top: 32px; }
     .hero { grid-template-columns: 1fr; gap: 32px; min-height: 0; text-align: center; }
     .hero .icon { margin: 0 auto; width: 72px; height: 72px; border-radius: 16px; }
@@ -180,13 +181,31 @@
         return { x: r.left + r.width / 2 - box.left, top: r.top - box.top + r.height * 0.15, bottom: r.bottom - box.top - r.height * 0.15 };
       });
       if (pts.length < 2) return;
-      var d = "M" + pts[0].x + " " + pts[0].top + " L" + pts[0].x + " " + pts[0].bottom;
-      for (var i = 1; i < pts.length; i++) {
-        var a = pts[i - 1], b = pts[i], mid = (a.bottom + b.top) / 2;
-        d += " C" + a.x + " " + mid + " " + b.x + " " + mid + " " + b.x + " " + b.top + " L" + b.x + " " + b.bottom;
+      var narrow = box.width <= 760, d;
+      if (narrow) {
+        // One column: through each picture, then along the left or right edge past the text.
+        d = "M" + pts[0].x + " " + pts[0].top + " L" + pts[0].x + " " + pts[0].bottom;
+        for (var k = 1; k < pts.length; k++) {
+          var p = pts[k - 1], q = pts[k], edge = k % 2 ? 9 : box.width - 9;
+          if (q.top - p.bottom < 280) {   // no text in between: straight on to the next picture
+            var m = (p.bottom + q.top) / 2;
+            d += " C" + p.x + " " + m + " " + q.x + " " + m + " " + q.x + " " + q.top + " L" + q.x + " " + q.bottom;
+            continue;
+          }
+          d += " C" + p.x + " " + (p.bottom + 80) + " " + edge + " " + (p.bottom + 20) + " " + edge + " " + (p.bottom + 110)
+             + " L" + edge + " " + (q.top - 110)
+             + " C" + edge + " " + (q.top - 20) + " " + q.x + " " + (q.top - 80) + " " + q.x + " " + q.top
+             + " L" + q.x + " " + q.bottom;
+        }
+      } else {
+        d = "M" + pts[0].x + " " + pts[0].top + " L" + pts[0].x + " " + pts[0].bottom;
+        for (var i = 1; i < pts.length; i++) {
+          var a = pts[i - 1], b = pts[i], mid = (a.bottom + b.top) / 2;
+          d += " C" + a.x + " " + mid + " " + b.x + " " + mid + " " + b.x + " " + b.top + " L" + b.x + " " + b.bottom;
+        }
       }
       var last = pts[pts.length - 1];
-      d += " C" + last.x + " " + (last.bottom + 200) + " " + box.width / 2 + " " + (last.bottom + 120) + " " + box.width / 2 + " " + (last.bottom + 320);
+      if (!narrow) d += " C" + last.x + " " + (last.bottom + 200) + " " + box.width / 2 + " " + (last.bottom + 120) + " " + box.width / 2 + " " + (last.bottom + 320);
       svg.setAttribute("viewBox", "0 0 " + box.width + " " + main.scrollHeight);
       svg.querySelector("#threadGradient").setAttribute("y2", main.scrollHeight);
       [].forEach.call(svg.querySelectorAll("path"), function (p) { p.setAttribute("d", d); });
