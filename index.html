@@ -220,8 +220,21 @@
       svg.querySelector("#threadGradient").setAttribute("y2", main.scrollHeight);
       [].forEach.call(svg.querySelectorAll("path"), function (p) { p.setAttribute("d", d); });
     }
-    window.addEventListener("load", draw);
-    window.addEventListener("resize", draw);
+    // The pictures further down load lazily, as you scroll: until then the page has other heights and the
+    // line had its bends in the wrong places (28 Oct). So it's drawn again whenever the page changes size
+    // and whenever a picture has loaded.
+    var queued = false;
+    function redraw() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; draw(); });
+    }
+    [].forEach.call(main.querySelectorAll("img"), function (img) {
+      if (!img.complete) img.addEventListener("load", redraw);
+    });
+    if (window.ResizeObserver) new ResizeObserver(redraw).observe(main);
+    window.addEventListener("load", redraw);
+    window.addEventListener("resize", redraw);
     draw();
   })();
 </script>
